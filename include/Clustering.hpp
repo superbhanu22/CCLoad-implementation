@@ -2,9 +2,7 @@
 #define CLUSTERING_HPP
 
 #include "Allocation.hpp"
-
 #include<vector>
-
 
 
 using namespace std ; 

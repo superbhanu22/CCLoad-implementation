@@ -1,8 +1,6 @@
 #include "../include/Clustering.hpp"
-#include <iostream>
 
 using namespace std ; 
-
 
 void Clustering::partition(int index){
 	if (index == nodes) {
@@ -10,17 +8,13 @@ void Clustering::partition(int index){
 		Allocation alloc(nodes) ; 
 
         for(auto& cluster:clustering){
-			// cout<<'['<<' ' ; 
             for(auto& cluster_element:cluster){
-				// cout<<cluster_element<<' ' ; 
                 alloc.allocation[cluster_element] = curr_processor ; 
             }
-			// cout<<']'<<' ' ; 
         	curr_processor++ ; 
         }
 
         all_clustering.push_back(alloc) ; 
-		// cout<<'\n' ; 
 		return;
 	}
 

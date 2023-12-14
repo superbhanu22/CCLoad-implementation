@@ -32,9 +32,7 @@ class Event_queue {
         
         priority_queue<Event , vector<Event> , cmp> event_queue ; 
 
-        int compute_exetime(Task_graph& graph , Allocation& alloc) ; 
-    
-        
+        int compute_exetime(Task_graph& graph , Allocation& alloc) ;     
 } ; 
 
 #endif

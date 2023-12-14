@@ -2,7 +2,6 @@
 #define ALLOCATION_HPP
 
 #include <vector>
-
 using namespace std ; 
 
 class Allocation{

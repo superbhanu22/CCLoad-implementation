@@ -17,6 +17,7 @@ class Ready_queue {
         Ready_queue(int processors){
             this->processors = processors ; 
             this->ready_queue = vector<queue<int>>(processors) ; 
+            this->proc_state = vector<bool>(processors , true) ; 
         }
 
 

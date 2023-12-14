@@ -7,7 +7,6 @@
 using namespace std ; 
 
 int main(){
-
     int n = 7 ; 
 
     Clustering cluster(7) ; 
@@ -26,25 +25,17 @@ int main(){
     
     vector<int> node_wt = {2,10,2,4,4,2,2} ; 
 
-    Task_graph g(n , node_wt , graph) ; 
-
     int time = 1e9 ; 
 
     Event_queue eq ; 
 
-    Allocation alloc(7) ; 
-    for(int i = 0 ; i<7 ; i++){
-        if(i < 2) alloc.allocation[i] = 0 ; 
-        else alloc.allocation[i] = 1 ; 
+    for(auto& it:cluster.all_clustering){
+        Task_graph g(n , node_wt , graph) ; 
+        int t_cal = eq.compute_exetime(g ,it) ; 
+
+        time = min(time , t_cal) ; 
     }
 
-    // cout<<cluster.all_clustering.size()<<'\n' ; 
-
-    // for(auto& it:cluster.all_clustering){
-    //     time = min(time , eq.compute_exetime(g ,it)) ; 
-    // }
-
-    time = eq.compute_exetime(g , alloc) ; 
 
 
     cout<<time<<'\n' ; 
