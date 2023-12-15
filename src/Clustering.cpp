@@ -1,5 +1,4 @@
 #include "../include/Clustering.hpp"
-
 using namespace std ; 
 
 void Clustering::partition(int index){

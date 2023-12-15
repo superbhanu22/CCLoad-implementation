@@ -3,13 +3,14 @@
 #include "./include/Clustering.hpp"
 #include "./include/Task_graph.hpp"
 #include "./include/Event_queue_model.hpp"
+#include "./include/CC_load.hpp"
 
 using namespace std ; 
 
 int main(){
     int n = 7 ; 
 
-    Clustering cluster(7) ; 
+    Clustering cluster(n) ; 
 
     cluster.gen_clustering() ; 
 
@@ -23,11 +24,13 @@ int main(){
         {0 , 0 , 0 , 0 , 0 , 0 , 0} 
     } ; 
     
-    vector<int> node_wt = {2,10,2,4,4,2,2} ; 
+    vector<int> node_wt = {2 , 10 , 2 , 4 , 4 , 2 , 2} ; 
 
     int time = 1e9 ; 
 
     Event_queue eq ; 
+
+    CC_load cc_load(n) ;
 
     for(auto& it:cluster.all_clustering){
         Task_graph g(n , node_wt , graph) ; 
@@ -37,8 +40,11 @@ int main(){
     }
 
 
+    cout<<"T_OPT = "<<time<<'\n' ; 
 
-    cout<<time<<'\n' ; 
+    Task_graph g(n , node_wt , graph) ; 
+    
+    cout<<"T_SUBOPT = "<<cc_load.cc_load_clustering(g)<<'\n' ; 
     
     return 0 ; 
 }
